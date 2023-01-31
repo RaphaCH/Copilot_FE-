@@ -1,0 +1,147 @@
+# using openapi 3.0.0 create an Employee contract with standard CRUD operations
+openapi: 3.0.0
+info:
+  title: Employee
+  version: 1.0.0
+  description: Employee CRUD operations
+paths:
+  /employee:
+    get:
+      summary: Get all employees
+      operationId: getEmployees
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+    post:
+      summary: Create an employee
+      operationId: createEmployee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+  /employee/{id}:
+    get:
+      summary: Get an employee by id
+      operationId: getEmployeeById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+    put:
+      summary: Update an employee
+      operationId: updateEmployee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+    delete:
+      summary: Delete an employee
+      operationId: deleteEmployee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+          format: phone
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+          format: zip
+        country:
+          type: string
+        title:
+          type: string
+        department:
+          type: string
+        manager:
+          type: string
+          format: uuid
+        hireDate:
+          type: string
+          format: date
+        terminationDate:
+          type: string
+          format: date
+        salary:
+          type: number
+          format: currency
+        commission:
+          type: number
+          format: currency
+        bonus:
+          type: number
+          format: currency
+        vacationDays:
+          type: integer
+        sickDays:
+          type: integer
+        notes:
+          type: string
+
+# Path: src\components\employee.js
+const Employee = require('./employee.yml');

@@ -1,0 +1,30 @@
+/* create a button class css style. The button's primary color should be purple. The css styling of the button with its colors, saturations and filters should make it resemble a neon sign */
+.button {
+  background-color: purple;
+  position: relative;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 0.75rem purple);
+}
+
+/* create a button::before and use that element to simulate diffuse purple light to help the above class simulate neon light */
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.5) 10%, transparent 11%);
+  background-size: 50px 50px;
+  z-index: -1;
+  filter: blur(10px);
+}

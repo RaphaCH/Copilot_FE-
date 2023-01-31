@@ -1,0 +1,23 @@
+/* generate CSS for a class card. It should resemble a small business card. The background should be a of a glossy paper. There should be a fainted business icon in the background of the card. The width of the business card should be greater than its height */
+
+
+.card {
+    background-color: #f5f5f5;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+
